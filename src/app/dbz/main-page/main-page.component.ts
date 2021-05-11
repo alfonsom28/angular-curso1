@@ -7,15 +7,6 @@ import { Personaje } from '../interfaces/dbz.interface';
 })
 export class MainPageComponent {
 
-  nuevo: Personaje = {
-    nombre: '',
-    poder: 0
-  }
-
-  // cambiarNombre( event: any){
-  //   console.log(event.target.value)
-  // }
-
   personajes: Personaje[] = [
     {
       nombre: 'Goku',
@@ -27,17 +18,15 @@ export class MainPageComponent {
     }
   ];
 
-  agregar(  ){
-
-    if ( this.nuevo.nombre.trim().length === 0 )//trim() para borrar espacios en blanco y length para obtener la cantidad de caracteres
-    {
-      return;
-    }
-
-    console.log(this.nuevo);
-
-    this.personajes.push(this.nuevo);
-    this.nuevo = {nombre: '', poder: 0}
+  nuevo: Personaje = {
+    nombre: 'maestro',
+    poder: 2000
   }
+  
+  agregarNuevoPersonaje( argumento: Personaje){
+    console.log('Main page component')
+    console.log(argumento)
 
+    this.personajes.push(argumento);
+  }
 }
